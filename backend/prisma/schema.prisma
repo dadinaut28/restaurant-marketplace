@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Restaurant { 
+  id    Int     @id @default(autoincrement()) 
+  email String  @unique
+  name  String
+  password String
+  phoneNumber Int @default(00000)
+  description String 
+  mainImageUrl String?
+  meals Meal[]
+  orders Order[]
+  location City? @relation(fields: [cityId], references: [id])
+  cityId  Int? 
+  openHour  Int
+  closeHour Int
+  createdAt DateTime?   @default(now())
+  updatedAt DateTime?   @updatedAt
+}
+
+
+model Meal { 
+  id        Int     @id @default(autoincrement()) 
+  name    String
+  description String
+  category   MealCategory? @relation(fields: [categoryId], references: [id])
+  categoryId Int?
+  imageUrl  String
+  price Int
+  restaurant  Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId  Int 
+  createdAt DateTime @default(now())
+  updatedAt DateTime?   @updatedAt
+}
+
+
+model Order {
+  id        Int         @id @default(autoincrement())
+  deliveryAdress  String
+  price Int
+  clientFirstname String
+  clientLastname String
+  restaurant Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId  Int
+  createdAt   DateTime?  @default(now()) 
+  updatedAt DateTime?   @updatedAt 
+}
+
+model MealCategory {
+  id  Int @id @default(autoincrement())
+  name  String
+  meals Meal[]
+}
+
+model City {
+  id Int @id @default(autoincrement())
+  name  String
+  restaurants Restaurant[]
+}
