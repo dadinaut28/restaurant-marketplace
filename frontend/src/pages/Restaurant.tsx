@@ -1,6 +1,5 @@
 import { useLoaderData, useOutletContext } from "react-router-dom";
 import type { Meal, Restaurant } from "../types";
-import { MealCard } from "../components/MealCard.tsx";
 import { MealCard_ } from "../components/MealCard_.tsx";
 import { useEffect } from "react";
 import type { contextType } from "../App.tsx";

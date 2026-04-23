@@ -29,7 +29,7 @@ export function MealCard({ meal }: Props) {
       <div className="overflow-hidden rounded-t-lg h-1/2">
         <img
           className="w-full h-full"
-          src={meal.image_url}
+          src={meal.imageUrl}
           alt="Image d'illustation du plat"
         />
       </div>

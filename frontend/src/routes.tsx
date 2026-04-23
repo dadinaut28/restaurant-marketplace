@@ -9,7 +9,7 @@ import { Restaurant } from "./pages/Restaurant";
 import { Cart } from "./pages/Cart";
 import { RestaurantDashboard } from "./pages/RestaurantDashboard";
 import { RestaurantDashboardMenu } from "./pages/RestaurantDashboardMenu";
-import { RestaurantDashboardOrders } from "./pages/RestaurantDashboardOrders";
+// import { RestaurantDashboardOrders } from "./pages/RestaurantDashboardOrders";
 import { RestaurantDashboardAnalytics } from "./pages/RestaurantDashboardAnalytics";
 import { NewMeal } from "./pages/NewMeal";
 import { RegisterOne } from "./pages/RegisterOne";
