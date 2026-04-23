@@ -14,11 +14,11 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-app.use(
-  cors({
-    origin: "https://restaurant-marketplace-two.vercel.app",
-  }),
-);
+app.use(cors());
+
+// {
+//     origin: "https://restaurant-marketplace-two.vercel.app",
+//   }
 
 app.use(express.json());
 app.use("/api/auth", authRouter);

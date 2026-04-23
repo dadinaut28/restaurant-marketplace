@@ -82,7 +82,7 @@ export async function postMeal(req: Request, res: Response) {
       data: {
         name,
         description,
-        price,
+        price: Number(price),
         restaurantId: Number(restaurantId),
         categoryId: Number(categoryId),
         imageUrl,
