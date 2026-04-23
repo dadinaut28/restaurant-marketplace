@@ -9,7 +9,7 @@
 
 .title {
   font-family:
-    "Bebas Neue", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+    "Bebas Neue", "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
 }
 
 button {
@@ -30,9 +30,9 @@ body {
   width: clamp(320px, 1500px, 1500px);
 }
 
-.title {
-  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
+/* .title {
+  font-family: ;
+} */
 
 @media screen and (min-width: 400px) {
   .blog-post-row {
