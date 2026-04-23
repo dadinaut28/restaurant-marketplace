@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 8080;
 
 app.use(
   cors({
-    origin: "https://restaurant-marketplace.onrender.com",
+    origin: "https://restaurant-marketplace-two.vercel.app",
   }),
 );
 
