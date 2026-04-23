@@ -36,8 +36,8 @@ export function NewMealForm({ mealCategories }: Props) {
         mealCategoryId,
         mealImage,
       );
-      console.log("STATUS: ", status);
-      if (status === 200) {
+
+      if (status === 201) {
         setMealName("");
         setMealDescription("");
         setMealPrice("");
