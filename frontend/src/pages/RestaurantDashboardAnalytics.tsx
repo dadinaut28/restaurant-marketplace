@@ -1,3 +1,9 @@
+import { DashboardAnalyticsNavBar } from "../components/DashboardAnalyticsNavBar";
+
 export function RestaurantDashboardAnalytics() {
-  return <div>RestaurantDashboardAnalytics</div>;
+  return (
+    <div>
+      <DashboardAnalyticsNavBar />
+    </div>
+  );
 }

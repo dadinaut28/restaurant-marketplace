@@ -55,12 +55,17 @@ export function RestaurantDashboard() {
     return () => observer.disconnect();
   }, [onLargeScreen]);
 
+  const closeSideBar = () => {
+    if (!onLargeScreen) setHideSideBar(true);
+  };
+
   return (
     <div ref={dashboardRef} className="flex bg-gray-50 min-h-screen">
       <RestaurantDashboardSideBar
         restaurant={restaurant}
         hideSideBar={hideSideBar}
         onLargeScreen={onLargeScreen}
+        onLinkClick={closeSideBar}
       />
       <div
         style={{ width: `${onLargeScreen ? "calc(100% - 240px)" : "100%"}` }}

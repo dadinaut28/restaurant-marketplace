@@ -5,12 +5,14 @@ interface Props {
   onLargeScreen: boolean;
   hideSideBar: boolean;
   restaurant: Restaurant;
+  onLinkClick: () => void;
 }
 
 export function RestaurantDashboardSideBar({
   onLargeScreen,
   hideSideBar,
   restaurant,
+  onLinkClick,
 }: Props) {
   const { pathname } = useLocation();
 
@@ -22,6 +24,7 @@ export function RestaurantDashboardSideBar({
         <h2 className="px-8 title text-2xl font-medium">{restaurant?.name}</h2>
         <div className="mt-7 flex font-medium flex-col gap-5 text-gray-500">
           <Link
+            onClick={onLinkClick}
             className={`${pathname === "/restaurant-dashboard/menu" && "bg-orange-50 p-2 text-orange-500"} px-8 flex relative`}
             to="/restaurant-dashboard/menu"
           >
@@ -39,7 +42,11 @@ export function RestaurantDashboardSideBar({
             )}
             Commandes
           </Link> */}
-          <Link className="px-8" to="/restaurant-dashboard/menu">
+          <Link
+            onClick={onLinkClick}
+            className="px-8"
+            to="/restaurant-dashboard/menu"
+          >
             Clients
           </Link>
         </div>

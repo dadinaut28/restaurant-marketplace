@@ -24,7 +24,7 @@ export function RestaurantDashboardMenuNavbar({ onLargeScreen }: Props) {
           <Button>Chercher</Button>
         </form>
       </div>
-      <Button>Profil</Button>
+      {/* <Button>Profil</Button> */}
     </nav>
   );
 }
