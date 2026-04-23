@@ -1,19 +1,15 @@
-import { useLoaderData, useOutletContext } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import type { Meal, Restaurant } from "../types";
 import { MealCard_ } from "../components/MealCard_.tsx";
-import { useEffect } from "react";
-import type { contextType } from "../App.tsx";
 
 export function Restaurant() {
   // const [restaurant, setRestaurant] = useState<Restaurant | undefined>();
   const { restaurant, restaurantMeals } = useLoaderData();
   console.log(restaurant, restaurantMeals);
 
-  const { onPageTransition } = useOutletContext<contextType>();
-
-  useEffect(() => {
-    onPageTransition();
-  }, [onPageTransition]);
+  // useEffect(() => {
+  //   onPageTransition();
+  // }, [onPageTransition]);
 
   return (
     <div className="pt-1 px-2 sm:px-5">

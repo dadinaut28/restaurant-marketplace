@@ -13,6 +13,7 @@ export async function getRestaurants(req: Request, res: Response) {
         phoneNumber: true,
         openHour: true,
         closeHour: true,
+        mainImageUrl: true,
       },
     });
     res.status(200).json({
@@ -43,6 +44,7 @@ export async function getRestaurant(req: Request, res: Response) {
         phoneNumber: true,
         openHour: true,
         closeHour: true,
+        mainImageUrl: true,
       },
     });
 
@@ -79,6 +81,7 @@ export async function getConnectedRestaurant(req: Request, res: Response) {
         phoneNumber: true,
         openHour: true,
         closeHour: true,
+        mainImageUrl: true,
       },
     });
 
