@@ -23,6 +23,9 @@ export function RestaurantDashboardSideBar({
       <div className="fixed w-60">
         <h2 className="px-8 title text-2xl font-medium">{restaurant?.name}</h2>
         <div className="mt-7 flex font-medium flex-col gap-5 text-gray-500">
+          <Link className="px-8" to="/">
+            Accueil
+          </Link>
           <Link
             onClick={onLinkClick}
             className={`${pathname === "/restaurant-dashboard/menu" && "bg-orange-50 p-2 text-orange-500"} px-8 flex relative`}

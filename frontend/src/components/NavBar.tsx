@@ -58,6 +58,9 @@ export function NavBar({
               />
             </Button>
           )}
+          <Link className="hover:text-orange-500 transition-colors" to="/">
+            Accueil
+          </Link>
           <Link
             className="hover:text-orange-500 transition-colors"
             to="/register"
@@ -72,12 +75,12 @@ export function NavBar({
           </Link>
         </div>
       )}
-      <Button
+      {/* <Button
         className="bg-orange-500 px-5 rounded-2xl"
         onClick={() => navigate("/cart")}
       >
         Panier
-      </Button>
+      </Button> */}
     </nav>
   );
 }

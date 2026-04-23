@@ -14,7 +14,6 @@ export function RestaurantDashboardMenu() {
 
   const { onLargeScreen, restaurantMeals } =
     useOutletContext<RestaurantDashboardContext>();
-  console.log("MEALS", restaurantMeals);
 
   const resolvedMeals = criteria
     ? restaurantMeals.filter((meal) =>

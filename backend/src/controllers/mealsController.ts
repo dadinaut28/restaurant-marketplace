@@ -139,8 +139,8 @@ export async function putMeal(req: Request, res: Response) {
         data: {
           name: newName,
           description: newDescription,
-          price: newPrice,
-          categoryId: newCategoryId,
+          price: Number(newPrice),
+          categoryId: Number(newCategoryId),
         },
       });
 
@@ -160,8 +160,8 @@ export async function putMeal(req: Request, res: Response) {
         data: {
           name: newName,
           description: newDescription,
-          price: newPrice,
-          categoryId: newCategoryId,
+          price: Number(newPrice),
+          categoryId: Number(newCategoryId),
           imageUrl,
         },
       });

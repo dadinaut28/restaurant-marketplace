@@ -16,7 +16,7 @@ export interface RestaurantDashboardContext {
   handleHamburgerClick: () => void;
   restaurantMeals: Meal[];
   mealCategories: MealCategory[];
-  dashboarRevalidator: {
+  dashboardRevalidator: {
     revalidate: () => Promise<void>;
     state: RevalidationState;
   };

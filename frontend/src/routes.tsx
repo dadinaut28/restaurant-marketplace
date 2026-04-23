@@ -6,7 +6,7 @@ import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Restaurants } from "./pages/Restaurants";
 import { Restaurant } from "./pages/Restaurant";
-import { Cart } from "./pages/Cart";
+// import { Cart } from "./pages/Cart";
 import { RestaurantDashboard } from "./pages/RestaurantDashboard";
 import { RestaurantDashboardMenu } from "./pages/RestaurantDashboardMenu";
 // import { RestaurantDashboardOrders } from "./pages/RestaurantDashboardOrders";
@@ -59,10 +59,10 @@ export const routes: RouteObject[] = [
           }
         },
       },
-      {
-        path: "cart",
-        element: <Cart />,
-      },
+      // {
+      //   path: "cart",
+      //   element: <Cart />,
+      // },
     ],
   },
   {

@@ -16,7 +16,7 @@ export function Restaurant() {
       <h2 className="title text-center text-3xl font-medium my-3.5">
         {restaurant?.name.toUpperCase()}
       </h2>
-      <div className="h-[70vh] overflow-hidden rounded-lg">
+      <div className="h-50 sm:h-100  overflow-hidden rounded-lg">
         <img
           className="object-cover object-center h-full w-full"
           src={restaurant?.mainImageUrl}

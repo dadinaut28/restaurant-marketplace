@@ -4,6 +4,8 @@ import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
 import type { MealCategory } from "../types";
 import { createNewMeal } from "../queries";
+import { useOutletContext } from "react-router-dom";
+import type { RestaurantDashboardContext } from "../pages/RestaurantDashboard";
 
 interface Props {
   mealCategories: MealCategory[];
@@ -18,6 +20,8 @@ export function NewMealForm({ mealCategories }: Props) {
   const [showMealCreationSuccessMessage, setShowMealCreationSuccessMessage] =
     useState(false);
   const [showServerErrorMessage, setShowServerErrorMessage] = useState(false);
+  const { dashboardRevalidator } =
+    useOutletContext<RestaurantDashboardContext>();
 
   const [loading, setLoading] = useState(false);
 
@@ -36,16 +40,16 @@ export function NewMealForm({ mealCategories }: Props) {
         mealCategoryId,
         mealImage,
       );
-
       if (status === 201) {
         setMealName("");
         setMealDescription("");
         setMealPrice("");
         setShowMealCreationSuccessMessage(true);
         setTimeout(() => setShowMealCreationSuccessMessage(false), 2000);
+        await dashboardRevalidator.revalidate();
       } else if (status === 500) {
         setShowServerErrorMessage(true);
-        setTimeout(() => setShowServerErrorMessage(false));
+        setTimeout(() => setShowServerErrorMessage(false), 2000);
       }
     } catch (err) {
       console.log(err);

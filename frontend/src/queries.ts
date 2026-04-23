@@ -165,7 +165,6 @@ export async function updateOneMeal(
     const response = await fetch(`${apiUrl}/api/meals/${mealId}`, {
       method: "PUT",
       headers: {
-        "Content-type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("dadinaut_restaurant_platform_auth_token")}`,
       },
       body,

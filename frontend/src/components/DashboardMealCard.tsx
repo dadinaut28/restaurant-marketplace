@@ -27,7 +27,7 @@ export function DashboardMealCard({ meal }: Props) {
     useState(false);
   const [showServerErrorMessage, setShowServerErrorMessage] = useState(false);
 
-  const { dashboarRevalidator, mealCategories } =
+  const { dashboardRevalidator, mealCategories } =
     useOutletContext<RestaurantDashboardContext>();
 
   const handleMealUpdateForm = async (e: SyntheticEvent) => {
@@ -46,13 +46,15 @@ export function DashboardMealCard({ meal }: Props) {
         setShowMealUpdateForm(false);
         setShowMealUpdateSuccessMessage(true);
         setTimeout(() => setShowMealUpdateSuccessMessage(false), 2000);
-        await dashboarRevalidator.revalidate();
+        await dashboardRevalidator.revalidate();
       } else if (status === 500) {
         setShowServerErrorMessage(true);
         setTimeout(() => setShowServerErrorMessage(false));
       }
     } catch (err) {
       console.log(err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -62,9 +64,9 @@ export function DashboardMealCard({ meal }: Props) {
       if (status === 500) {
         setShowServerErrorMessage(true);
         setTimeout(() => setShowServerErrorMessage(false));
-        await dashboarRevalidator.revalidate();
       } else if (status === 200) {
         setShowMealDeletionConfirmationBox(false);
+        await dashboardRevalidator.revalidate();
       }
     } catch (err) {
       console.log(err);
@@ -96,7 +98,7 @@ export function DashboardMealCard({ meal }: Props) {
       {showMealUpdateForm && (
         <form
           onSubmit={handleMealUpdateForm}
-          className="fixed bg-white top-1/6 left-1/2 -translate-x-1/2 pt-14 pb-5 px-5 rounded-lg border border-gray-100 shadow  flex flex-col gap-6"
+          className="fixed bg-white top-1/6 left-1/2 -translate-x-1/2 pt-14 pb-5 px-5 rounded-lg border border-gray-100 shadow  flex flex-col gap-6 min-w-75"
         >
           <Button
             onClick={() => setShowMealUpdateForm(false)}
