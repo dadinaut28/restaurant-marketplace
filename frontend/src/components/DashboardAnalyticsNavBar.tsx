@@ -4,7 +4,7 @@ import { useOutletContext } from "react-router-dom";
 import type { RestaurantDashboardContext } from "../pages/RestaurantDashboard";
 
 export function DashboardAnalyticsNavBar() {
-  const { onLargeScreen, handleHamburgerClick, hideSideBar } =
+  const { onLargeScreen, handleHamburgerClick } =
     useOutletContext<RestaurantDashboardContext>();
   return (
     <nav className="h-10 flex items-center px-5 border-b border-gray-50 bg-white">
