@@ -3,7 +3,9 @@ import { apiUrl } from "../queries";
 
 export async function isUserConnected(navigate: NavigateFunction) {
   try {
-    const token = localStorage.getItem("dadinaut_blogging_platform_auth_token");
+    const token = localStorage.getItem(
+      "dadinaut_restaurant_platform_auth_token",
+    );
 
     if (!token) return navigate("/login");
 

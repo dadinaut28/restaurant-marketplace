@@ -90,6 +90,7 @@ export const routes: RouteObject[] = [
   },
   {
     path: "/restaurant-dashboard",
+    errorElement: <ErrorPage />,
     element: <RestaurantDashboard />,
     children: [
       {

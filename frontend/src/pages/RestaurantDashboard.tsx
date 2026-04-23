@@ -1,12 +1,14 @@
 import {
   Outlet,
   useLoaderData,
+  useNavigate,
   useRevalidator,
   type RevalidationState,
 } from "react-router-dom";
 import { RestaurantDashboardSideBar } from "../components/RestaurantDashboardSideBar";
 import { useEffect, useRef, useState } from "react";
 import type { Meal, MealCategory } from "../types";
+import { isUserConnected } from "../lib/IsUserConnected";
 
 export interface RestaurantDashboardContext {
   onLargeScreen: boolean;
@@ -21,6 +23,11 @@ export interface RestaurantDashboardContext {
 }
 
 export function RestaurantDashboard() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    isUserConnected(navigate);
+  }, [navigate]);
+
   const dashboardRef = useRef(null);
 
   const [onLargeScreen, setOnLargeScreen] = useState(false);
