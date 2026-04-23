@@ -30,7 +30,7 @@ export function RestaurantDashboardSideBar({
             )}
             Menu
           </Link>
-          <Link
+          {/* <Link
             className={`${pathname === "/restaurant-dashboard/orders" && "bg-orange-50 p-2 text-orange-500"} px-8 flex relative`}
             to="/restaurant-dashboard/orders"
           >
@@ -38,8 +38,8 @@ export function RestaurantDashboardSideBar({
               <div className="w-1.5 rounded-r-sm absolute left-0 top-0 bottom-0 bg-orange-500"></div>
             )}
             Commandes
-          </Link>
-          <Link className="px-8" to="/restaurant-dashboard/orders">
+          </Link> */}
+          <Link className="px-8" to="/restaurant-dashboard/menu">
             Clients
           </Link>
         </div>

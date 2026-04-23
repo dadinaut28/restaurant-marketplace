@@ -10,7 +10,6 @@ interface Props {
 }
 
 export function NewMealForm({ mealCategories }: Props) {
-
   const [mealName, setMealName] = useState("");
   const [mealDescription, setMealDescription] = useState("");
   const [mealPrice, setMealPrice] = useState("");
@@ -37,6 +36,7 @@ export function NewMealForm({ mealCategories }: Props) {
         mealCategoryId,
         mealImage,
       );
+      console.log("STATUS: ", status);
       if (status === 200) {
         setMealName("");
         setMealDescription("");

@@ -22,7 +22,7 @@ export function Main() {
           restaurants, le tout au même endroit.
         </p>
       )}
-      <h2 className="text-center mt-[20vh] text-2xl leading-8 md:leading-10 md:text-3xl lg:text-5xl lg:leading-14 text-gray-200 md:mt-0 font-semibold">
+      <h2 className="text-center mt-[20vh] text-2xl leading-8 md:leading-10 md:text-3xl lg:text-5xl lg:leading-14 text-gray-200 md:mt-0 font-semibold outline-orange-500">
         COMMANDEZ VOS <span className="text-orange-500">PLATS PRÉFÉRÉS</span>,
         OU QUE VOUS SOYEZ, EN QUELQUES CLICS.
       </h2>

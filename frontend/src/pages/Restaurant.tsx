@@ -1,11 +1,20 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useOutletContext } from "react-router-dom";
 import type { Meal, Restaurant } from "../types";
 import { MealCard } from "../components/MealCard.tsx";
+import { MealCard_ } from "../components/MealCard_.tsx";
+import { useEffect } from "react";
+import type { contextType } from "../App.tsx";
 
 export function Restaurant() {
   // const [restaurant, setRestaurant] = useState<Restaurant | undefined>();
   const { restaurant, restaurantMeals } = useLoaderData();
   console.log(restaurant, restaurantMeals);
+
+  const { onPageTransition } = useOutletContext<contextType>();
+
+  useEffect(() => {
+    onPageTransition();
+  }, [onPageTransition]);
 
   return (
     <div className="pt-1 px-2 sm:px-5">
@@ -50,7 +59,7 @@ export function Restaurant() {
       <div className="flex justify-center">
         <div className="my-8 grid gap-x-5 gap-y-8 sm:gap-y-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {restaurantMeals.map((meal: Meal) => (
-            <MealCard key={meal?.id} meal={meal} />
+            <MealCard_ key={meal?.id} meal={meal} />
           ))}
         </div>
       </div>

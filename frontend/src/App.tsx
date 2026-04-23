@@ -20,7 +20,7 @@ export interface contextType {
 
 function App() {
   const appRef = useRef<null | HTMLDivElement>(null);
-  const [hideSideBar, setHideSideBar] = useState(false);
+  const [hideSideBar, setHideSideBar] = useState(true);
   const [onLargeScreen, setOnLargeScreen] = useState(false);
   const [onSmallScreen] = useState(false);
   // When going from one page to another

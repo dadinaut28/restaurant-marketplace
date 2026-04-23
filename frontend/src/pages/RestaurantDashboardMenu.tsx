@@ -27,7 +27,7 @@ export function RestaurantDashboardMenu() {
       <RestaurantDashboardMenuNavbar onLargeScreen={onLargeScreen} />
       <div className="px-5 pt-0.5">
         <div className="flex justify-between mt-4">
-          <p className="font-medium">Menu</p>
+          <p className="title text-2xl font-medium">Menu</p>
           <div>
             <Button
               onClick={() => navigate("/restaurant-dashboard/new-meal")}

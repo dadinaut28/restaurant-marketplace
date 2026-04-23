@@ -101,10 +101,10 @@ export const routes: RouteObject[] = [
         path: "menu",
         element: <RestaurantDashboardMenu />,
       },
-      {
-        path: "orders",
-        element: <RestaurantDashboardOrders />,
-      },
+      // {
+      //   path: "orders",
+      //   element: <RestaurantDashboardOrders />,
+      // },
       {
         path: "new-meal",
         element: <NewMeal />,

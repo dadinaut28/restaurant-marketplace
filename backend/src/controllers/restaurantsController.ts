@@ -7,9 +7,12 @@ export async function getRestaurants(req: Request, res: Response) {
       select: {
         id: true,
         name: true,
+        email: true,
         description: true,
         location: true,
         phoneNumber: true,
+        openHour: true,
+        closeHour: true,
       },
     });
     res.status(200).json({
@@ -34,9 +37,12 @@ export async function getRestaurant(req: Request, res: Response) {
       select: {
         id: true,
         name: true,
+        email: true,
         description: true,
         location: true,
         phoneNumber: true,
+        openHour: true,
+        closeHour: true,
       },
     });
 
@@ -59,7 +65,6 @@ export async function getConnectedRestaurant(req: Request, res: Response) {
     if (req.restaurantInfo && typeof req.restaurantInfo !== "string") {
       restaurantId = req.restaurantInfo?.restaurantId;
     }
-    console.log("ID", restaurantId);
 
     const restaurant = await prisma.restaurant.findUnique({
       where: {
@@ -68,9 +73,12 @@ export async function getConnectedRestaurant(req: Request, res: Response) {
       select: {
         id: true,
         name: true,
+        email: true,
         description: true,
         location: true,
         phoneNumber: true,
+        openHour: true,
+        closeHour: true,
       },
     });
 
