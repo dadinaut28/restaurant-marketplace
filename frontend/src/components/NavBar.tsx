@@ -2,8 +2,6 @@ import { Button } from "./ui/button";
 // import { Input } from "./ui/input";
 import hamburger from "../assets/hamburger.svg";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-
 interface Props {
   onHamburgerClick: () => void;
   onLargeScreen: boolean;
@@ -19,11 +17,6 @@ export function NavBar({
   onSideBarClose,
 }: Props) {
   const navigate = useNavigate();
-
-  useEffect(
-    () => console.log(onLargeScreen, hideSideBar),
-    [hideSideBar, onLargeScreen],
-  );
 
   return (
     <nav className="h-14 fixed top-0 left-0 right-0 flex justify-between px-5 items-center z-40 border-b bg-white border-gray-100">

@@ -10,7 +10,7 @@ import { Restaurant } from "./pages/Restaurant";
 import { RestaurantDashboard } from "./pages/RestaurantDashboard";
 import { RestaurantDashboardMenu } from "./pages/RestaurantDashboardMenu";
 // import { RestaurantDashboardOrders } from "./pages/RestaurantDashboardOrders";
-import { RestaurantDashboardAnalytics } from "./pages/RestaurantDashboardAnalytics";
+// import { RestaurantDashboardAnalytics } from "./pages/RestaurantDashboardAnalytics";
 import { NewMeal } from "./pages/NewMeal";
 import { RegisterOne } from "./pages/RegisterOne";
 import { RegisterTwo } from "./pages/RegisterTwo";
@@ -95,10 +95,6 @@ export const routes: RouteObject[] = [
     children: [
       {
         index: true,
-        element: <RestaurantDashboardAnalytics />,
-      },
-      {
-        path: "menu",
         element: <RestaurantDashboardMenu />,
       },
       // {
