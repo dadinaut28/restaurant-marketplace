@@ -39,25 +39,25 @@ function App() {
     })();
   }, [cartMeals]);
 
-  const addNewCartMeal = (newMeal: Meal) => {
-    // To figure out if the meal being added is already in cartMeals
-    const findedMeal = cartMeals.find(
-      (cartMeal) => cartMeal.id === newMeal?.id,
-    );
-    if (!findedMeal) {
-      setCartMeals([...cartMeals, { ...newMeal, quantity: 1 }]);
-    } else {
-      setCartMeals(
-        cartMeals.map((cartMeal) => {
-          if (cartMeal.id === newMeal.id) {
-            return { ...cartMeal, quantity: cartMeal.quantity + 1 };
-          } else {
-            return cartMeal;
-          }
-        }),
-      );
-    }
-  };
+  // const addNewCartMeal = (newMeal: Meal) => {
+  //   // To figure out if the meal being added is already in cartMeals
+  //   const findedMeal = cartMeals.find(
+  //     (cartMeal) => cartMeal.id === newMeal?.id,
+  //   );
+  //   if (!findedMeal) {
+  //     setCartMeals([...cartMeals, { ...newMeal, quantity: 1 }]);
+  //   } else {
+  //     setCartMeals(
+  //       cartMeals.map((cartMeal) => {
+  //         if (cartMeal.id === newMeal.id) {
+  //           return { ...cartMeal, quantity: cartMeal.quantity + 1 };
+  //         } else {
+  //           return cartMeal;
+  //         }
+  //       }),
+  //     );
+  //   }
+  // };
 
   const removeCartMeal = (cartMealId: number) => {
     setCartMeals(cartMeals.filter((cartMeal) => cartMeal.id !== cartMealId));
@@ -128,7 +128,7 @@ function App() {
         <Outlet
           context={{
             cartMeals,
-            addNewCartMeal,
+            // addNewCartMeal,
             removeCartMeal,
             increaseMealQuantity,
             decreaseMealQuantity,

@@ -166,7 +166,7 @@ export function DashboardMealCard({ meal }: Props) {
       <div className="h-2/3">
         <img
           className="h-full w-full"
-          src={meal.image_url}
+          src={meal.imageUrl}
           alt="Image du plat"
         />
       </div>
