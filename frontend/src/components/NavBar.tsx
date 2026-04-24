@@ -47,7 +47,7 @@ export function NavBar({
       </div>
       {(onLargeScreen || (!onLargeScreen && !hideSideBar)) && (
         <div
-          className={`${!onLargeScreen ? "fixed top-0 left-0 bottom-0 flex flex-col z-40 pt-25 px-5 gap-8 border border-gray-200 shadow bg-white" : "flex gap-12 text-lg font-medium text-gray-800"}`}
+          className={`${!onLargeScreen ? "fixed top-0 left-0 bottom-0 flex flex-col z-40 pt-25 pl-6 pr-20 gap-8 border border-gray-200 shadow bg-white" : "flex gap-12 text-lg font-medium text-gray-800"}`}
         >
           {!onLargeScreen && (
             <Button

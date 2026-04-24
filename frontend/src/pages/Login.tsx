@@ -63,7 +63,7 @@ export function Login() {
           Platform
         </Button>
       </nav>
-      <h2 className="text-3xl font-semibold text-center mt-25">
+      <h2 className="text-3xl title text-center mt-38 sm:mt-25">
         Connectez vous
       </h2>
       <div className="flex justify-center">

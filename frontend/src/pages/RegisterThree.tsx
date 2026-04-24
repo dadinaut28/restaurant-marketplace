@@ -96,6 +96,11 @@ export function RegisterThree() {
           <p>Erreur interne: réessayez plus tard.</p>
         </div>
       )}
+      {showBadInputMessage && (
+        <div className="fixed right-5 top-20 bg-red-100 border border-red-300 text-red-500 rounded-sm px-2.5 py-1 text-sm font-medium">
+          <p>Vérifiez les entrées et réessayez</p>
+        </div>
+      )}
       {showRegisterSuccessMessage && (
         <div className="fixed right-5 top-20 bg-blue-50 border border-blue-300 text-blue-500 rounded-sm px-2.5 py-1 text-sm font-medium">
           <p>Inscription réussie.</p>
