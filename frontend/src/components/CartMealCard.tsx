@@ -74,7 +74,7 @@ export function CartMealCard({ cartMeal }: Props) {
       <div className="h-3/5">
         <img
           className="h-full w-full"
-          src={cartMeal.image_url}
+          src={cartMeal.imageUrl}
           alt="Image d'illustration d'un repas"
         />
       </div>

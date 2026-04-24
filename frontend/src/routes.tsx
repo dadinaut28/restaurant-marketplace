@@ -58,6 +58,7 @@ export const routes: RouteObject[] = [
             console.log(err);
           }
         },
+        hydrateFallbackElement: <RestaurantsFallback />,
       },
       // {
       //   path: "cart",
@@ -87,6 +88,7 @@ export const routes: RouteObject[] = [
         element: <RegisterThree />,
       },
     ],
+    hydrateFallbackElement: <RestaurantsFallback />,
   },
   {
     path: "/restaurant-dashboard",
@@ -108,5 +110,6 @@ export const routes: RouteObject[] = [
       },
     ],
     loader: dashboardLoader,
+    hydrateFallbackElement: <RestaurantsFallback />,
   },
 ];

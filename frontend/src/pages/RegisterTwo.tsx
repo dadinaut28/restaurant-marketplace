@@ -37,19 +37,12 @@ export function RegisterTwo() {
           <Textarea
             value={description}
             onChange={(e) => changeDescription(e.target.value)}
-            className="w-72 md:w-75 "
+            className="w-72 md:w-75"
             placeholder="Décrivez votre établissement"
           />{" "}
           <br />
-          {/* <Input
-            value={location}
-            onChange={(e) => changeLocation(e.target.value)}
-            className="w-72 md:w-75 mb-5"
-            placeholder="Votre ville"
-          />{" "} */}
-          <span></span>
-          <br />
           <select
+            className="m-0 mb-2.5 w-72 md:w-75 border py-1 rounded-md"
             value={locationId}
             onChange={(e) => {
               changeLocationId(e.target.value);

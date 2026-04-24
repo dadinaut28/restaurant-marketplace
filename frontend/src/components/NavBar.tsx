@@ -8,6 +8,8 @@ interface Props {
   onSmallScreen: boolean;
   hideSideBar: boolean;
   onSideBarClose: () => void;
+  isRestaurantConnected: boolean;
+  onRestaurantDeconnection: () => void;
 }
 
 export function NavBar({
@@ -15,8 +17,16 @@ export function NavBar({
   onLargeScreen,
   hideSideBar,
   onSideBarClose,
+  isRestaurantConnected,
+  onRestaurantDeconnection,
 }: Props) {
   const navigate = useNavigate();
+
+  const handleDeconnection = () => {
+    localStorage.removeItem("dadinaut_restaurant_platform_auth_token");
+    navigate("/");
+    onRestaurantDeconnection();
+  };
 
   return (
     <nav className="h-14 fixed top-0 left-0 right-0 flex justify-between px-5 items-center z-40 border-b bg-white border-gray-100">
@@ -54,26 +64,40 @@ export function NavBar({
           <Link className="hover:text-orange-500 transition-colors" to="/">
             Accueil
           </Link>
-          <Link
-            className="hover:text-orange-500 transition-colors"
-            to="/register"
-          >
-            Inscrivez votre restaurant
-          </Link>
-          <Link
-            className="hover:text-orange-500 transition-colors"
-            to="/restaurant-dashboard"
-          >
-            Tableau de bord
-          </Link>
+          {!isRestaurantConnected && (
+            <Link
+              className="hover:text-orange-500 transition-colors"
+              to="/register"
+            >
+              Inscrivez votre restaurant
+            </Link>
+          )}
+          {isRestaurantConnected && (
+            <Link
+              className="hover:text-orange-500 transition-colors"
+              to="/restaurant-dashboard"
+            >
+              Tableau de bord
+            </Link>
+          )}
+          {!isRestaurantConnected && (
+            <Link
+              className="hover:text-orange-500 transition-colors"
+              to="/login"
+            >
+              Connexion
+            </Link>
+          )}
         </div>
       )}
-      {/* <Button
-        className="bg-orange-500 px-5 rounded-2xl"
-        onClick={() => navigate("/cart")}
-      >
-        Panier
-      </Button> */}
+      {isRestaurantConnected && (
+        <Button
+          className="bg-orange-500 px-5 rounded-2xl"
+          onClick={handleDeconnection}
+        >
+          Déconnexion
+        </Button>
+      )}
     </nav>
   );
 }

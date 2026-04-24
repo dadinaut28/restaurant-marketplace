@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import type { Meal, Restaurant } from "../types";
 import { MealCard_ } from "../components/MealCard_.tsx";
+// import { MealCard } from "../components/MealCard.tsx";
 
 export function Restaurant() {
   // const [restaurant, setRestaurant] = useState<Restaurant | undefined>();

@@ -3,6 +3,7 @@ import "./App.css";
 import { NavBar } from "./components/NavBar";
 import { useEffect, useRef, useState } from "react";
 import type { CartMeal, Meal } from "./types";
+import { apiUrl } from "./queries";
 // import type { User } from "./types";
 
 export interface contextType {
@@ -23,10 +24,36 @@ function App() {
   const [hideSideBar, setHideSideBar] = useState(true);
   const [onLargeScreen, setOnLargeScreen] = useState(false);
   const [onSmallScreen] = useState(false);
+  const [isRestaurantConnected, setIsRestaurantConnected] = useState(false);
   // When going from one page to another
   const onPageTransition = () => {
     setHideSideBar(true);
   };
+
+  useEffect(() => {
+    (async () => {
+      const token = localStorage.getItem(
+        "dadinaut_restaurant_platform_auth_token",
+      );
+      if (!token) {
+        return setIsRestaurantConnected(false);
+      }
+      const response = await fetch(`${apiUrl}/api/verify-token`, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          token,
+        }),
+      });
+
+      if (response.status !== 200) {
+        return setIsRestaurantConnected(false);
+      }
+      return setIsRestaurantConnected(true);
+    })();
+  }, []);
 
   const [cartMeals, setCartMeals] = useState<CartMeal[] | []>([]);
   const [cartTotalPrice, setCartTotalPrice] = useState(0);
@@ -39,25 +66,25 @@ function App() {
     })();
   }, [cartMeals]);
 
-  // const addNewCartMeal = (newMeal: Meal) => {
-  //   // To figure out if the meal being added is already in cartMeals
-  //   const findedMeal = cartMeals.find(
-  //     (cartMeal) => cartMeal.id === newMeal?.id,
-  //   );
-  //   if (!findedMeal) {
-  //     setCartMeals([...cartMeals, { ...newMeal, quantity: 1 }]);
-  //   } else {
-  //     setCartMeals(
-  //       cartMeals.map((cartMeal) => {
-  //         if (cartMeal.id === newMeal.id) {
-  //           return { ...cartMeal, quantity: cartMeal.quantity + 1 };
-  //         } else {
-  //           return cartMeal;
-  //         }
-  //       }),
-  //     );
-  //   }
-  // };
+  const addNewCartMeal = (newMeal: Meal) => {
+    // To figure out if the meal being added is already in cartMeals
+    const findedMeal = cartMeals.find(
+      (cartMeal) => cartMeal.id === newMeal?.id,
+    );
+    if (!findedMeal) {
+      setCartMeals([...cartMeals, { ...newMeal, quantity: 1 }]);
+    } else {
+      setCartMeals(
+        cartMeals.map((cartMeal) => {
+          if (cartMeal.id === newMeal.id) {
+            return { ...cartMeal, quantity: cartMeal.quantity + 1 };
+          } else {
+            return cartMeal;
+          }
+        }),
+      );
+    }
+  };
 
   const removeCartMeal = (cartMealId: number) => {
     setCartMeals(cartMeals.filter((cartMeal) => cartMeal.id !== cartMealId));
@@ -115,6 +142,10 @@ function App() {
     setHideSideBar(true);
   };
 
+  const deconnectRestaurant = () => {
+    setIsRestaurantConnected(false);
+  };
+
   return (
     <div ref={appRef} className="w-full">
       <NavBar
@@ -123,12 +154,14 @@ function App() {
         onSideBarClose={closeSideBar}
         onSmallScreen={onSmallScreen}
         hideSideBar={hideSideBar}
+        isRestaurantConnected={isRestaurantConnected}
+        onRestaurantDeconnection={deconnectRestaurant}
       />
       <div className="mt-14">
         <Outlet
           context={{
             cartMeals,
-            // addNewCartMeal,
+            addNewCartMeal,
             removeCartMeal,
             increaseMealQuantity,
             decreaseMealQuantity,

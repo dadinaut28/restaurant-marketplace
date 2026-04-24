@@ -84,7 +84,7 @@ export function DashboardMealCard({ meal }: Props) {
     !newMealCategoryId ||
     loading;
   return (
-    <div className="w-70 h-80 bg-white my-5 border border-gray-200 shadow rounded-lg overflow-hidden">
+    <div className="w-70 h-90 bg-white my-5 border border-gray-200 shadow rounded-lg overflow-hidden">
       {showMealUpdateSuccessMessage && (
         <div className="fixed top-8 right-5 px-3 py-1 rounded-xl text-sm font-medium text-green-500 bg-green-50 border border-green-500">
           Le plat a bien été modifié

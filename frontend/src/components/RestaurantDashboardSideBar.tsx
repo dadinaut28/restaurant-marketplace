@@ -29,7 +29,7 @@ export function RestaurantDashboardSideBar({
           <Link
             onClick={onLinkClick}
             className={`${pathname === "/restaurant-dashboard" && "bg-orange-50 p-2 text-orange-500"} px-8 flex relative`}
-            to="/restaurant-dashboard/menu"
+            to="/restaurant-dashboard"
           >
             {pathname === "/restaurant-dashboard" && (
               <div className="w-1.5 rounded-r-sm absolute left-0 top-0 bottom-0 bg-orange-500"></div>

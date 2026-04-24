@@ -8,8 +8,8 @@ export function Cart() {
   return (
     <div className="py-1 px-5">
       <h1 className="title text-3xl text-center my-5">Mon Panier</h1>
-      <p className="title mt-5">
-        Prix total: <span>{cartTotalPrice} FCFA</span>
+      <p className="mt-5 text-xl font-medium">
+        Prix total: <span className="text-lg">{cartTotalPrice} FCFA</span>
       </p>
       {cartMeals.length === 0 ? (
         <p className="text-center mt-10">
